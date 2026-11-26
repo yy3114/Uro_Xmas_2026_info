@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>泌尿道聖誕祝福</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&display=swap">
+<style>
+html,body{margin:0}
+[hidden]{display:none!important}
+/* Layout: one phone-shaped stage; scenes cross-fade on a 54-second timeline, snow canvas behind */
+:root{
+  --night:#0a1c26; --night2:#13394a; --gold:#ecc66d; --gold-dim:rgba(236,198,109,.32);
+  --berry:#d9475a; --pine:#3e8f70; --snow:#f3f6f4; --mist:#93b1b9;
+  --zh:"LXGW WenKai TC","Noto Serif TC","PingFang TC","Microsoft JhengHei",serif;
+  --en:"Cormorant Garamond","Times New Roman",serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:radial-gradient(120% 80% at 50% 0%,var(--night2),var(--night) 70%);background-color:var(--night);color:var(--snow);font-family:var(--zh);overflow:hidden}
+.app{height:100%;display:grid;grid-template-rows:1fr auto;position:relative}
+#snow,#snow2{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#snow2{z-index:2;bottom:auto}
+.stage{position:relative;overflow:hidden;cursor:pointer;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sc{opacity:0;transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+.sc.on{opacity:1}
+
+/* Intro */
+.intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;text-align:center;transform:scale(.96)}
+.intro.on{transform:none}
+.star{width:3.6rem;height:auto;fill:var(--gold);filter:drop-shadow(0 0 10px rgba(236,198,109,.8));animation:twinkle 3.2s ease-in-out infinite;margin-bottom:-.4rem}
+@keyframes twinkle{50%{filter:drop-shadow(0 0 20px rgba(236,198,109,1));transform:scale(1.04)}}
+.verse{margin:.9rem 0 0;font-size:clamp(.92rem,3.8vw,1.05rem);line-height:1.8;color:var(--mist);letter-spacing:.08em;opacity:0;transition:opacity 1s 1.4s}
+.intro.on .verse{opacity:1}
+.intro:not(.on) .verse{transition-delay:0s}
+.verse cite{display:block;font-style:normal;font-size:.78rem;letter-spacing:.2em;margin-top:.2rem;opacity:.8}
+.intro h1{font-family:var(--en);font-style:italic;font-weight:600;font-size:clamp(2.6rem,11vw,4.4rem);margin:0;line-height:1;color:var(--gold);text-wrap:balance}
+.intro p{margin:0;font-size:clamp(1.05rem,4.4vw,1.35rem);letter-spacing:.18em;color:var(--snow)}
+.intro small{color:var(--mist);letter-spacing:.3em;font-size:.8rem}
+
+/* Urinary tract scenes */
+.tract{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;align-items:center;justify-items:center;padding-block:3vh 2vh}
+.top{display:grid;text-align:center;min-height:4.4rem;align-items:end}
+.top>*{grid-area:1/1}
+.eyebrow{letter-spacing:.32em;color:var(--mist);font-size:.82rem}
+.fin-title{font-family:var(--en);font-style:italic;font-weight:600;color:var(--gold);font-size:clamp(2.4rem,10vw,3.8rem);line-height:1;transform:translateY(10px)}
+.fin-title.on{transform:none}
+svg.anat{height:min(48vh,400px);max-width:100%;overflow:visible;will-change:transform}
+.tract{perspective:900px}
+.org{opacity:.42;transition:opacity .9s ease}
+.org.lit{opacity:.8}
+.org.cur{opacity:1}
+.ln{fill:none;stroke:var(--snow);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .9s,fill .9s}
+.ln.fillw{fill:rgba(243,246,244,.025)}
+.ln.echo{stroke-width:.7;opacity:.4}
+.ln.thin{stroke-width:1;opacity:.6}
+.org.cur .ln{stroke:var(--gold)}
+.org.cur .ln.fillw{fill:rgba(236,198,109,.1)}
+.lead{fill:none;stroke:var(--mist);stroke-width:.7;stroke-dasharray:2 2.5}
+.lab{font-family:var(--en);font-style:italic;font-size:14px;fill:var(--mist);letter-spacing:.04em;transition:fill .9s}
+.org.cur .lab{fill:var(--gold)}
+.dot{fill:var(--snow);filter:url(#glow)}
+.hat{opacity:0;transform:translateY(-14px);transform-box:fill-box;transition:opacity .6s,transform .6s cubic-bezier(.3,1.6,.5,1)}
+.hat.on{opacity:1;transform:none}
+.caps{display:grid;text-align:center;min-height:7.2rem;width:100%;max-width:30rem}
+.cap{grid-area:1/1;transform:translateY(8px);display:flex;flex-direction:column;gap:.45rem;align-items:center}
+.cap.on{transform:none}
+.cap-name{font-size:1.05rem;color:var(--gold);letter-spacing:.2em}
+.cap-name span{font-family:var(--en);font-style:italic;letter-spacing:.04em;color:var(--mist);margin-left:.3em}
+.cap p{margin:0;font-size:clamp(1.3rem,5.6vw,1.75rem);line-height:1.5;text-wrap:balance}
+.cap b{color:var(--berry);font-weight:700;font-size:1.15em}
+
+/* Acronym cards */
+.card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;perspective:1100px}
+.tilt{transform-style:preserve-3d;transform:rotateX(26deg) translateY(36px) scale(.94);transition:transform 0s .7s}
+.card.on .tilt{transform:none;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.flipper{position:relative;width:min(82vw,340px);height:min(62vh,440px);transform-style:preserve-3d;transition:transform 0s .7s}
+.card.on .flipper{transform:rotateY(180deg);transition:transform 1.1s cubic-bezier(.55,0,.2,1) 1.8s}
+.face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;padding:1.4rem;border-radius:20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:linear-gradient(160deg,rgba(25,70,88,.94),rgba(10,28,38,.96));border:1px solid rgba(236,198,109,.38);box-shadow:0 30px 60px -10px rgba(0,0,0,.55),0 0 40px rgba(236,198,109,.08)}
+.face::before{content:"";position:absolute;inset:10px;border:1px solid rgba(236,198,109,.18);border-radius:13px;pointer-events:none}
+.face.back{transform:rotateY(180deg)}
+.acr-s{font-family:var(--en);font-weight:600;font-size:1.9rem;letter-spacing:.24em;color:var(--gold);opacity:.85}
+.acr{display:flex;gap:.08em;font-family:var(--en);font-weight:600;font-size:clamp(4rem,21vw,6.6rem);line-height:.9;color:var(--gold)}
+.acr span{display:inline-block;opacity:0;transform:translateY(-40px) rotate(-8deg);transition:opacity .5s,transform .7s cubic-bezier(.3,1.5,.5,1)}
+.card.on .acr span{opacity:1;transform:none}
+.card.on .acr span:nth-child(2){transition-delay:.12s}
+.card.on .acr span:nth-child(3){transition-delay:.24s}
+.term{position:relative;color:var(--mist);font-size:1.05rem;letter-spacing:.2em;opacity:0;transition:opacity .5s,color .5s}
+.term::after{content:"";position:absolute;left:-4%;top:52%;height:2px;width:0;background:var(--berry);transition:width .5s}
+.card.on .term{opacity:1;transition-delay:.6s}
+.card.on .term::after{width:108%;transition-delay:1.2s}
+.eng{font-family:var(--en);font-style:italic;font-weight:500;font-size:clamp(1.4rem,6.2vw,2rem);line-height:1.2;max-width:22rem;opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s;text-wrap:balance}
+.eng i{font-style:italic;font-weight:600;color:var(--gold);font-size:1.25em}
+.card.on .eng{opacity:1;transform:none;transition-delay:2.6s}
+.zh{font-size:clamp(1.4rem,6.2vw,2rem);letter-spacing:.12em;opacity:0;transform:scale(.9);transition:opacity .6s,transform .6s;color:var(--snow)}
+.card.on .zh{opacity:1;transform:none;transition-delay:3.1s}
+.zh::before,.zh::after{content:"✦";color:var(--berry);font-size:.55em;vertical-align:middle;margin:0 .5em}
+.zh.long::before,.zh.long::after{content:none}
+.zh .nw{white-space:nowrap}
+.zh .st{color:var(--berry);font-size:.55em;vertical-align:middle;margin:0 .5em}
+
+/* Finale sign-off */
+.fin-cap p{font-size:clamp(1.3rem,5.6vw,1.7rem)}
+.fin-cap .sign{font-family:var(--en);font-style:italic;font-size:clamp(1.05rem,4.4vw,1.3rem);line-height:1.35;color:var(--mist)}
+.fin-cap .zh-sign{font-size:clamp(1.05rem,4.4vw,1.25rem);letter-spacing:.3em;color:var(--gold)}
+.fin-cap .sign strong{font-style:normal;font-weight:600;color:var(--gold);letter-spacing:.06em}
+
+/* Controls */
+.bar{position:relative;z-index:3;display:flex;align-items:center;gap:.7rem;padding-block:.7rem calc(.7rem + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(10,28,38,.7);border-top:1px solid rgba(147,177,185,.18)}
+.bar button{font:inherit;font-size:.9rem;color:var(--snow);background:rgba(147,177,185,.14);border:1px solid rgba(147,177,185,.3);border-radius:999px;padding:.45rem .9rem;cursor:pointer;white-space:nowrap}
+.bar button:hover{background:rgba(236,198,109,.18)}
+.bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.bar button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
+.track{flex:1;min-width:0;height:6px;border-radius:3px;background:rgba(147,177,185,.2);cursor:pointer;position:relative}
+.fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:3px;background:linear-gradient(90deg,var(--berry),var(--gold))}
+.time{font-variant-numeric:tabular-nums;color:var(--mist);font-size:.8rem;min-width:4.6em;text-align:right;font-family:system-ui,sans-serif}
+@media (prefers-reduced-motion:reduce){.tilt,.flipper{transition:none!important}.star{animation:none}.sc,.acr span,.eng,.zh,.hat,.cap{transform:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <canvas id="snow"></canvas>
+  <div class="stage" id="stage" aria-live="polite">
+
+    <div class="sc intro" data-from="0" data-to="6">
+      <svg class="star" viewBox="-40 -42 80 130" aria-hidden="true">
+        <g transform="rotate(45) scale(.42)"><path d="M0,-40 L5,-5 L40,0 L5,5 L0,40 L-5,5 L-40,0 L-5,-5Z"/></g>
+        <path d="M0,-40 L4.5,-4.5 L34,0 L4.5,4.5 L0,86 L-4.5,4.5 L-34,0 L-4.5,-4.5Z"/>
+        <circle r="3.2" fill="#fff"/>
+      </svg>
+      <h1>Merry Christmas</h1>
+      <p>來自泌尿道的聖誕祝福</p>
+      <blockquote class="verse">在至高之處榮耀歸與神！<br>在地上平安歸與他所喜悅的人！<cite>路加福音 2:14</cite></blockquote>
+    </div>
+
+    <div class="sc tract" id="tract">
+      <div class="top">
+        <div class="sc eyebrow" data-from="6" data-to="26">祝福沿著泌尿道 一路送達</div>
+        <div class="sc fin-title" data-from="48" data-to="999">Merry Christmas</div>
+      </div>
+
+      <svg class="anat" viewBox="0 0 300 370" role="img" aria-label="腎臟、輸尿管、膀胱、攝護腺與尿道的線描示意圖">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="b"/>
+            <feFlood flood-color="#ecc66d" flood-opacity=".55"/><feComposite in2="b" operator="in" result="h"/>
+            <feMerge><feMergeNode in="h"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+        <g filter="url(#rough)">
+          <g id="kidney" class="org">
+            <path class="ln fillw" d="M90,30 C60,30 48,60 50,80 C52,104 68,124 92,122 C110,120 114,104 105,94 C98,86 98,70 105,62 C114,50 110,30 90,30Z"/><path class="ln echo" d="M90,30 C60,30 48,60 50,80 C52,104 68,124 92,122 C110,120 114,104 105,94 C98,86 98,70 105,62 C114,50 110,30 90,30Z" transform="translate(1.6,1.2)"/>
+            <path class="ln fillw" transform="translate(300,0) scale(-1,1)" d="M90,30 C60,30 48,60 50,80 C52,104 68,124 92,122 C110,120 114,104 105,94 C98,86 98,70 105,62 C114,50 110,30 90,30Z"/><path class="ln echo" transform="translate(301.6,1.2) scale(-1,1)" d="M90,30 C60,30 48,60 50,80 C52,104 68,124 92,122 C110,120 114,104 105,94 C98,86 98,70 105,62 C114,50 110,30 90,30Z"/>
+            <path class="ln thin" d="M98,70 Q90,80 98,92"/><path class="ln thin" transform="translate(300,0) scale(-1,1)" d="M98,70 Q90,80 98,92"/>
+            <path class="lead" d="M222,40 L250,26"/><text class="lab" x="254" y="24">ren</text>
+          </g>
+          <g id="ureter" class="org">
+            <path class="ln" id="uL" d="M104,100 C116,145 120,185 130,214"/>
+            <path class="ln" id="uR" d="M196,100 C184,145 180,185 170,214"/>
+            <path class="ln echo" d="M106,102 C118,147 122,186 132,214"/>
+            <path class="ln echo" d="M198,102 C186,147 182,186 172,214"/>
+            <path class="lead" d="M186,160 L212,160"/><text class="lab" x="216" y="164">ureter</text>
+          </g>
+          <g id="urethra" class="org">
+            <path class="ln" id="uRe" d="M150,284 L150,356"/>
+            <path class="ln echo" d="M152,286 L151.5,356"/>
+            <path class="lead" d="M154,346 L176,346"/><text class="lab" x="180" y="350">urethra</text>
+          </g>
+          <g id="bladder" class="org">
+            <ellipse class="ln fillw" cx="150" cy="242" rx="52" ry="42"/>
+            <ellipse class="ln echo" cx="151.5" cy="243.5" rx="51" ry="41"/>
+            <path class="lead" d="M203,250 L222,256"/><text class="lab" x="226" y="260">vesica</text>
+          </g>
+          <g id="prostate" class="org">
+            <ellipse class="ln fillw" cx="150" cy="296" rx="25" ry="13"/>
+            <ellipse class="ln echo" cx="151" cy="297" rx="24" ry="12.5"/>
+            <path class="lead" d="M124,298 L104,304"/><text class="lab" x="100" y="308" text-anchor="end">prostata</text>
+          </g>
+        </g>
+        <g id="hatP"><g id="hat" class="hat">
+          <path d="M114,212 Q134,166 194,174 Q176,194 186,212 Z" fill="rgba(217,71,90,.28)" stroke="#d9475a" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="108" y="206" width="84" height="13" rx="6.5" fill="#0a1c26" stroke="#f3f6f4" stroke-width="1.4"/>
+          <circle cx="196" cy="174" r="7" fill="#0a1c26" stroke="#f3f6f4" stroke-width="1.4"/>
+        </g></g>
+        <g id="dots"></g>
+      </svg>
+
+      <div class="caps">
+        <div class="sc cap" data-from="6" data-to="10"><div class="cap-name">腎臟<span>Kidney</span></div><p>「<b>腎</b>」誕快樂，好事成雙。</p></div>
+        <div class="sc cap" data-from="10" data-to="14"><div class="cap-name">輸尿管<span>Ureter</span></div><p>把祝福「<b>輸</b>」送到你身旁。</p></div>
+        <div class="sc cap" data-from="14" data-to="18"><div class="cap-name">膀胱<span>Bladder</span></div><p>幸福滿<b>膀</b>，煩惱放<b>光</b>。</p></div>
+        <div class="sc cap" data-from="18" data-to="22"><div class="cap-name">攝護腺<span>Prostate</span></div><p>為你「<b>攝</b>」下笑容，<br>「<b>護</b>」住平安。</p></div>
+        <div class="sc cap" data-from="22" data-to="26"><div class="cap-name">尿道<span>Urethra</span></div><p>幸福一路<b>暢通</b>，<br>好運一路到家。</p></div>
+        <div class="sc cap fin-cap" data-from="48.6" data-to="999"><p>聖誕快樂・新年安康</p><div class="sign">Greetings from<br><strong>Department of Urology</strong><br><strong>Madou Sin Lau Hospital</strong></div><div class="zh-sign">麻新泌尿科</div></div>
+      </div>
+    </div>
+
+    <div class="sc card" data-from="26" data-to="31.5">
+      <div class="tilt"><div class="flipper">
+        <div class="face front"><div class="acr"><span>B</span><span>P</span><span>H</span></div><div class="term">良性攝護腺肥大</div></div>
+        <div class="face back"><div class="acr-s">BPH</div><div class="eng"><i>B</i>e <i>P</i>eaceful &amp; <i>H</i>appy</div><div class="zh">願你平安喜樂</div></div>
+      </div></div>
+    </div>
+    <div class="sc card" data-from="31.5" data-to="37">
+      <div class="tilt"><div class="flipper">
+        <div class="face front"><div class="acr"><span>P</span><span>S</span><span>A</span></div><div class="term">攝護腺特定抗原</div></div>
+        <div class="face back"><div class="acr-s">PSA</div><div class="eng"><i>P</i>eace, <i>S</i>miles &amp; <i>A</i>bundance</div><div class="zh long"><span class="nw"><span class="st">✦</span>願你平安、常笑、</span><span class="nw">豐盛有餘<span class="st">✦</span></span></div></div>
+      </div></div>
+    </div>
+    <div class="sc card" data-from="37" data-to="42.5">
+      <div class="tilt"><div class="flipper">
+        <div class="face front"><div class="acr"><span>O</span><span>A</span><span>B</span></div><div class="term">膀胱過動症</div></div>
+        <div class="face back"><div class="acr-s">OAB</div><div class="eng"><i>O</i>verflowing with <i>A</i>bundant <i>B</i>lessings</div><div class="zh">滿滿祝福，幸福滿溢</div></div>
+      </div></div>
+    </div>
+    <div class="sc card" data-from="42.5" data-to="48">
+      <div class="tilt"><div class="flipper">
+        <div class="face front"><div class="acr"><span>E</span><span>D</span></div><div class="term">勃起功能障礙</div></div>
+        <div class="face back"><div class="acr-s">ED</div><div class="eng"><i>E</i>njoy <i>D</i>ecember</div><div class="zh">好好享受十二月</div></div>
+      </div></div>
+    </div>
+  </div>
+
+  <canvas id="snow2" aria-hidden="true"></canvas>
+  <div class="bar">
+    <button id="play" type="button" aria-label="暫停">❚❚ 暫停</button>
+    <div class="track" id="track" role="slider" aria-label="播放進度" aria-valuemin="0" aria-valuemax="54" aria-valuenow="0" tabindex="0"><div class="fill" id="fill"></div></div>
+    <span class="time" id="time">0:00 / 0:54</span>
+    <button id="sound" type="button" aria-pressed="false">♪ 音樂</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const T = 54;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  const scenes = [...document.querySelectorAll('.sc[data-from]')];
+  const tract = $('#tract'), hat = $('#hat'), anat = $('svg.anat');
+  const depth = [['kidney',-.6],['ureter',-.3],['bladder',.2],['prostate',.3],['urethra',.3],['hatP',1.3],['dots',.9]].map(([id,d]) => [document.getElementById(id),d]);
+  const organs = ['kidney','ureter','bladder','prostate','urethra'].map(id => document.getElementById(id));
+  const playBtn = $('#play'), fill = $('#fill'), timeEl = $('#time'), track = $('#track');
+  let t = 0, playing = true, last = null;
+
+  // flowing "blessing" dots
+  const NS = 'http://www.w3.org/2000/svg';
+  const dotsG = $('#dots');
+  const tubes = [['uL',10],['uR',10],['uRe',22]].map(([id,start]) => {
+    const p = document.getElementById(id), len = p.getTotalLength();
+    const ds = [0,1,2].map(() => { const c = document.createElementNS(NS,'circle'); c.setAttribute('r','3.6'); c.setAttribute('class','dot'); c.style.opacity=0; dotsG.appendChild(c); return c; });
+    return {p,len,ds,start};
+  });
+
+  const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+
+  function render(){
+    for (const el of scenes) el.classList.toggle('on', t >= +el.dataset.from && t < +el.dataset.to);
+    const inTract = (t >= 6 && t < 26) || t >= 48;
+    tract.classList.toggle('on', inTract);
+    const idx = t >= 48 ? 5 : (t >= 6 && t < 26 ? Math.floor((t-6)/4) : -1);
+    organs.forEach((o,i) => {
+      o.classList.toggle('cur', idx === i || idx === 5);
+      o.classList.toggle('lit', idx > i);
+    });
+    hat.classList.toggle('on', t >= 14 && inTract);
+    for (const tb of tubes){
+      const active = (t >= tb.start && t < tb.start+4) || t >= 48.6;
+      tb.ds.forEach((c,k) => {
+        if (!active){ c.style.opacity = 0; return; }
+        const f = ((t*0.55) + k/3) % 1;
+        const pt = tb.p.getPointAtLength(f*tb.len);
+        c.setAttribute('cx',pt.x); c.setAttribute('cy',pt.y);
+        c.style.opacity = Math.sin(f*Math.PI).toFixed(2);
+      });
+    }
+    const ang = reduce ? 0 : Math.sin(t*0.5)*18, tx = reduce ? 0 : 4+Math.sin(t*0.33)*5;
+    anat.style.transform = `rotateY(${ang.toFixed(2)}deg) rotateX(${tx.toFixed(2)}deg)`;
+    const sx = Math.sin(ang*Math.PI/180)*20;
+    for (const [el,d] of depth) el.style.transform = `translate(${(sx*d).toFixed(2)}px,0)`;
+    fill.style.width = (t/T*100)+'%';
+    track.setAttribute('aria-valuenow', Math.round(t));
+    timeEl.textContent = `${fmt(t)} / ${fmt(T)}`;
+  }
+
+  function setPlaying(p){
+    playing = p;
+    if (p && t >= T) t = 0;
+    playBtn.textContent = p ? '❚❚ 暫停' : (t >= T ? '↻ 重播' : '▶ 播放');
+    playBtn.setAttribute('aria-label', p ? '暫停' : (t >= T ? '重播' : '播放'));
+    music.sync();
+  }
+
+  function frame(now){
+    if (last === null) last = now;
+    if (playing){
+      t += Math.min(0.1,(now-last)/1000);
+      if (t >= T){ t = T; setPlaying(false); }
+    }
+    last = now;
+    render();
+    requestAnimationFrame(frame);
+  }
+
+  playBtn.addEventListener('click', () => setPlaying(!playing));
+  $('#stage').addEventListener('click', () => setPlaying(!playing));
+  function seek(e){ const r = track.getBoundingClientRect(); t = Math.max(0,Math.min(T-0.01,(e.clientX-r.left)/r.width*T)); if(!playing) setPlaying(true); }
+  track.addEventListener('click', seek);
+  track.addEventListener('keydown', e => {
+    if (e.key==='ArrowRight') t = Math.min(T-0.01,t+4);
+    else if (e.key==='ArrowLeft') t = Math.max(0,t-4);
+  });
+
+  // "We Wish You a Merry Christmas" (traditional) as soft bells
+  const music = (() => {
+    const N = {D4:293.66,E4:329.63,'F#4':369.99,G4:392,A4:440,B4:493.88,C5:523.25,D5:587.33};
+    const mel = [['D4',1],['G4',1],['G4',.5],['A4',.5],['G4',.5],['F#4',.5],['E4',1],['E4',1],['E4',1],['A4',1],['A4',.5],['B4',.5],['A4',.5],['G4',.5],['F#4',1],['D4',1],['D4',1],['B4',1],['B4',.5],['C5',.5],['B4',.5],['A4',.5],['G4',1],['E4',1],['D4',.5],['D4',.5],['E4',1],['A4',1],['F#4',1],['G4',3]];
+    const beat = 0.42;
+    let ctx = null, on = false, i = 0, next = 0, timer = null, gain;
+    function bell(f, at, dur){
+      const o1 = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain();
+      o1.type='sine'; o1.frequency.value=f; o2.type='triangle'; o2.frequency.value=f*2;
+      const g2 = ctx.createGain(); g2.gain.value=.18;
+      o1.connect(g); o2.connect(g2).connect(g); g.connect(gain);
+      g.gain.setValueAtTime(0.0001,at); g.gain.exponentialRampToValueAtTime(.5,at+.015); g.gain.exponentialRampToValueAtTime(.0001,at+Math.max(.5,dur*1.6));
+      o1.start(at); o2.start(at); o1.stop(at+dur*1.7+.1); o2.stop(at+dur*1.7+.1);
+    }
+    function tick(){
+      while (next < ctx.currentTime + .25){
+        const [n,b] = mel[i];
+        bell(N[n], next, b*beat);
+        next += b*beat; i = (i+1) % mel.length;
+        if (i === 0) next += beat;
+      }
+    }
+    function sync(){
+      if (!ctx) return;
+      if (on && playing){ ctx.resume(); if (!timer){ next = ctx.currentTime+.05; timer = setInterval(tick,80); } }
+      else { clearInterval(timer); timer = null; ctx.suspend(); }
+    }
+    function toggle(){
+      try{
+        if (!ctx){ ctx = new (window.AudioContext||window.webkitAudioContext)(); gain = ctx.createGain(); gain.gain.value=.22; gain.connect(ctx.destination); }
+      }catch(e){ return false; }
+      on = !on; if(!on) i = i; sync(); return on;
+    }
+    return {sync,toggle};
+  })();
+  const soundBtn = $('#sound');
+  soundBtn.addEventListener('click', () => { const on = music.toggle(); soundBtn.setAttribute('aria-pressed', String(!!on)); });
+
+  // snow: soft back layer + large blurred front layer for depth
+  function layer(cv, density, rMin, rMax, vMul, blur){
+    const cx = cv.getContext('2d'); let W=0,H=0,fl=[];
+    function size(){
+      const d = Math.min(2, devicePixelRatio||1);
+      W = cv.clientWidth; H = cv.clientHeight; cv.width = W*d; cv.height = H*d; cx.setTransform(d,0,0,d,0,0);
+      const n = reduce ? Math.ceil(density*W*H/2e5) : Math.round(density*W*H/5e4);
+      fl = Array.from({length:n},() => ({x:Math.random()*W,y:Math.random()*H,r:rMin+Math.random()*(rMax-rMin),v:(Math.random()*.5+.25)*vMul,s:Math.random()*Math.PI*2}));
+    }
+    function draw(){
+      cx.clearRect(0,0,W,H);
+      const k = window.__speed||1;
+      for (const f of fl){
+        if (!reduce){ f.y += f.v*k; f.s += .01*k; f.x += Math.sin(f.s)*.3*vMul*k; }
+        if (f.y > H+f.r*2){ f.y = -f.r*2; f.x = Math.random()*W; }
+        const g = cx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r*(blur?2.2:1));
+        g.addColorStop(0,`rgba(243,246,244,${blur?.55:.35+f.r/5})`); g.addColorStop(1,'rgba(243,246,244,0)');
+        cx.fillStyle = blur ? g : `rgba(243,246,244,${.35+f.r/5})`;
+        cx.beginPath(); cx.arc(f.x,f.y,f.r*(blur?2.2:1),0,Math.PI*2); cx.fill();
+      }
+      requestAnimationFrame(draw);
+    }
+    addEventListener('resize', size); size(); draw();
+  }
+  layer($('#snow'), 7, .5, 2.2, 1, false);
+  layer($('#snow2'), .5, 3, 6, 2.2, true);
+
+  render(); requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
